@@ -1,0 +1,48 @@
+<LoginWindow>:
+    title: "Login"
+    BoxLayout:
+        orientation: "vertical"
+        TextInput:
+            id: username_input
+            hint_text: "Enter your username"
+            multiline: False
+        TextInput:
+            id: api_key_input
+            hint_text: "Enter your API key"
+            multiline: False
+        Button:
+            text: "Enter Chat"
+            on_release: root.login_and_enter_chat()
+
+<ChatWindow>:
+    title: "Anuj GPT"
+    chat_input: chat_input
+    chat_history: chat_history
+
+    BoxLayout:
+        orientation: "vertical"
+        TextInput:
+            id: chat_history
+            readonly: True
+            size_hint_y: 0.9
+        BoxLayout:
+            size_hint_y: 0.1
+            TextInput:
+                id: chat_input
+                multiline: True
+                size_hint_x: None
+                width: self.parent.width - 160
+            Button:
+                text: "Send"
+                size_hint_x: None
+                width: 80
+                on_release: root.send_message()
+            Button:
+                text: "Clear"
+                size_hint_x: None
+                width: 80
+                on_release: root.clear_chat()
+
+
+
+       
